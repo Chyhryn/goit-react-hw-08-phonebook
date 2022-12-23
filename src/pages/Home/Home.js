@@ -10,6 +10,7 @@ import {
   selectIsLoading,
 } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
+import { Container } from 'components/Container/Container';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
+    <Container>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
       <h2 className={css.title}>Contacts</h2>
@@ -30,6 +31,6 @@ export const Home = () => {
       {isLoading && !error && <p>Please wait. We are loading your contacts.</p>}
       {error && <p>{error}</p>}
       {contacts.length > 0 && <ContactList />}
-    </div>
+    </Container>
   );
 };

@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
 import { HeaderLayout } from './HeaderLayout/HeaderLayout';
+import { Login } from 'pages/Login/Login';
 
 export const App = () => {
   return (
@@ -8,26 +9,9 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HeaderLayout />}>
           <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />;
         </Route>
       </Routes>
     </>
   );
 };
-
-// export const Login = () => {
-//   return (
-//     <form>
-//       <label htmlFor="">
-//         Email
-//         <input type="email" />
-//       </label>
-//       <label htmlFor="">
-//         Password
-//         <input type="password" />
-//       </label>
-//       <button tyoe="submit">Login</button>
-//     </form>
-//   );
-// };
-
-// //  <Route path="login" element={<Login />} />;
