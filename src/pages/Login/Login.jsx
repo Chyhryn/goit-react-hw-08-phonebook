@@ -2,8 +2,10 @@ import { Container } from 'components/Container/Container';
 import css from './Login.module.css';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/operations';
+
 export const Login = () => {
   const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -11,10 +13,9 @@ export const Login = () => {
     const password = form.elements.password.value;
     const user = { email, password };
     dispatch(login(user));
-
-    // console.log(email.value, password.value);
     form.reset();
   };
+
   return (
     <Container>
       <h1 className={css.title}>Login form</h1>
