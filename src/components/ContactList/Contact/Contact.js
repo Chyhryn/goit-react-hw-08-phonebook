@@ -13,7 +13,7 @@ export const Contact = ({ contact }) => {
   return (
     <li className={css.contact_item} key={contact.id} id={contact.id}>
       <span>
-        {contact.name}: {contact.phone}
+        {contact.name}: {contact.number}
       </span>
       <button className={css.delete_btn} onClick={onClick} type="button">
         Delete

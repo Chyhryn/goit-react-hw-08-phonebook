@@ -11,8 +11,8 @@ export const ContactForm = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
-    const newContact = { name, phone };
+    const number = form.elements.number.value;
+    const newContact = { name, number };
 
     const checkDuplicatedContact = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -41,7 +41,7 @@ export const ContactForm = () => {
         Number
         <input
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
