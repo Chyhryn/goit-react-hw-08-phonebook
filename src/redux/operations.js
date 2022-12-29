@@ -39,7 +39,7 @@ export const logIn = createAsyncThunk('user/login', async (user, thunkAPI) => {
 
 export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('/users/logout');
+    await axios.post('/users/logout');
     token.unset();
     return;
   } catch (e) {
@@ -47,17 +47,22 @@ export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
   }
 });
 
-// export const fetchCurrentUser = createAsyncThunk(
-//   'user/currentUser',
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get('/users/current');
-//       console.log(response.data);
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+export const refreshUser = createAsyncThunk(
+  'user/refreshUser',
+  async (_, thunkAPI) => {
+    const { token } = thunkAPI.getState().auth;
+    console.log(token);
+    if (!token) return thunkAPI.rejectWithValue('No valid token!');
+
+    token.set(token);
+    try {
+      const response = await axios.get('/users/current');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 // Contacts operations
 
