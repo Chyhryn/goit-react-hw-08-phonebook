@@ -1,7 +1,7 @@
 import { Container } from 'components/Container/Container';
 import css from './Login.module.css';
 import { useDispatch } from 'react-redux';
-import { login } from 'redux/operations';
+import { logIn } from 'redux/operations';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const Login = () => {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
     const user = { email, password };
-    dispatch(login(user));
+    dispatch(logIn(user));
     form.reset();
   };
 
