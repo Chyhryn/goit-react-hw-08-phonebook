@@ -1,38 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createUser, login } from 'redux/operations';
 
-const initialState = {
+const initialAuthState = {
   user: {},
-  isLoading: false,
+  isLoggedIn: false,
   isRefreshing: false,
   error: null,
 };
 
-const handlePending = state => {
-  state.isLoading = true;
-};
-
 const handleRejected = (state, action) => {
-  state.isLoading = false;
+  state.isLoggedIn = false;
   state.error = action.payload;
 };
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState,
+  initialState: initialAuthState,
   extraReducers: {
-    [createUser.pending]: handlePending,
     [createUser.rejected]: handleRejected,
-    [login.pending]: handlePending,
     [login.rejected]: handleRejected,
     [createUser.fulfilled](state, action) {
       state.user = action.payload.user;
-      state.isLoading = false;
+      state.isLoggedIn = true;
       state.error = null;
     },
     [login.fulfilled](state, action) {
       state.user = action.payload.user;
-      state.isLoading = false;
+      state.isLoggedIn = true;
       state.error = null;
     },
   },

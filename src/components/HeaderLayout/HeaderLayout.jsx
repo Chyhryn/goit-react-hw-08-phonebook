@@ -1,8 +1,13 @@
 import { Outlet } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import css from './HeaderLayout.module.css';
+import { UserInfo } from './UserInfo/UserInfo';
+import { AuthNav } from './AuthNav/AuthNav';
+import { useSelector } from 'react-redux';
+import { selectAuthState } from 'redux/selectors';
 
 export const HeaderLayout = () => {
+  const { isLoggedIn } = useSelector(selectAuthState);
   return (
     <>
       <header className={css.header}>
@@ -10,15 +15,7 @@ export const HeaderLayout = () => {
           Home
         </NavLink>
         <div className={css.headerThumb}>
-          <div>Hello</div>
-          <div>
-            <NavLink className={css.link} to="/login">
-              Login
-            </NavLink>
-            <NavLink className={css.link} to="/sign-up">
-              Registration
-            </NavLink>
-          </div>
+          {isLoggedIn ? <UserInfo /> : <AuthNav />}
         </div>
       </header>
       <Outlet />
