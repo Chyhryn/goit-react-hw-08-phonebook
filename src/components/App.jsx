@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/operations';
 import { selectAuthState } from 'redux/selectors';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -22,9 +24,16 @@ export const App = () => {
       <>
         <Routes>
           <Route path="/" element={<HeaderLayout />}>
-            <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />;
-            <Route path="sign-up" element={<Registration />} />
+            <Route index element={<PrivateRoute component={Home} />} />
+            <Route
+              path="login"
+              element={<RestrictedRoute component={Login} />}
+            />
+            ;
+            <Route
+              path="sign-up"
+              element={<RestrictedRoute component={Registration} />}
+            />
           </Route>
         </Routes>
       </>
