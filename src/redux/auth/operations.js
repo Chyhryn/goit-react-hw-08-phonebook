@@ -5,10 +5,10 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const token = {
   set(token) {
-    axios.defaults.headers.common.Authorisation = `Bearer ${token}`;
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorisation = '';
+    axios.defaults.headers.common.Authorization = '';
   },
 };
 
@@ -49,9 +49,9 @@ export const refreshUser = createAsyncThunk(
   'user/refreshUser',
   async (_, thunkAPI) => {
     const { token } = thunkAPI.getState().auth;
-    console.log(token);
-    if (!token) return thunkAPI.rejectWithValue('No valid token!');
 
+    if (!token) return thunkAPI.rejectWithValue('No valid token!');
+    console.log(token);
     token.set(token);
     try {
       const response = await axios.get('/users/current');
