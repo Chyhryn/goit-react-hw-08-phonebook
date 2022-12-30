@@ -1,7 +1,7 @@
 import { Container } from 'components/Container/Container';
 import css from './Login.module.css';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/operations';
+import { logIn } from 'redux/auth/operations';
 
 export const Login = () => {
   const dispatch = useDispatch();

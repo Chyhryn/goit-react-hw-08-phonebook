@@ -4,7 +4,7 @@ import css from './HeaderLayout.module.css';
 import { UserInfo } from './UserInfo/UserInfo';
 import { AuthNav } from './AuthNav/AuthNav';
 import { useSelector } from 'react-redux';
-import { selectAuthState } from 'redux/selectors';
+import { selectAuthState } from 'redux/auth/authSelectors';
 
 export const HeaderLayout = () => {
   const { isLoggedIn } = useSelector(selectAuthState);

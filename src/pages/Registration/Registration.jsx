@@ -1,7 +1,7 @@
 import { Container } from 'components/Container/Container';
 import css from './Registration.module.css';
 import { useDispatch } from 'react-redux';
-import { createUser } from 'redux/operations';
+import { createUser } from 'redux/auth/operations';
 export const Registration = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {

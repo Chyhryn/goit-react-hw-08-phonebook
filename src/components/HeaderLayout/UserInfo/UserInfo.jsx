@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut } from 'redux/operations';
-import { selectAuthState } from 'redux/selectors';
+import { logOut } from 'redux/auth/operations';
+import { selectAuthState } from 'redux/auth/authSelectors';
 
 export const UserInfo = () => {
   const { user } = useSelector(selectAuthState);

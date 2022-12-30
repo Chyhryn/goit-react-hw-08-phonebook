@@ -5,8 +5,8 @@ import { Login } from 'pages/Login/Login';
 import { Registration } from 'pages/Registration/Registration';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshUser } from 'redux/operations';
-import { selectAuthState } from 'redux/selectors';
+import { refreshUser } from 'redux/auth/operations';
+import { selectAuthState } from 'redux/auth/authSelectors';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
