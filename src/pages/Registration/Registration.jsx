@@ -2,6 +2,7 @@ import { Container } from 'components/Container/Container';
 import css from './Registration.module.css';
 import { useDispatch } from 'react-redux';
 import { createUser } from 'redux/auth/operations';
+
 export const Registration = () => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
@@ -13,8 +14,6 @@ export const Registration = () => {
     const user = { name, email, password };
     dispatch(createUser(user));
     form.reset();
-
-    // console.log(user);
   };
 
   return (
