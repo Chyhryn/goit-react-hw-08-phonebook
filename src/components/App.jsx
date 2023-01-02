@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home } from 'pages/Home/Home';
+import { Contacts } from 'pages/Contacts/Contacts';
 import { HeaderLayout } from './HeaderLayout/HeaderLayout';
 import { Login } from 'pages/Login/Login';
 import { Registration } from 'pages/Registration/Registration';
@@ -24,7 +24,7 @@ export const App = () => {
       <>
         <Routes>
           <Route path="/" element={<HeaderLayout />}>
-            <Route index element={<PrivateRoute component={Home} />} />
+            <Route index element={<PrivateRoute component={Contacts} />} />
             <Route
               path="login"
               element={<RestrictedRoute component={Login} />}

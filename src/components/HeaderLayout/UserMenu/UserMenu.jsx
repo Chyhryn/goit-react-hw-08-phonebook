@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { selectAuthState } from 'redux/auth/authSelectors';
+import css from './UserMenu.module.css';
 
-export const UserInfo = () => {
+export const UserMenu = () => {
   const { user } = useSelector(selectAuthState);
   const dispatch = useDispatch();
   const onClickHandler = () => {
@@ -11,8 +12,8 @@ export const UserInfo = () => {
 
   return (
     <>
-      <div>Hello {user.name}</div>
-      <button type="button" onClick={onClickHandler}>
+      <p className={css.user_email}>Hello {user.email}</p>
+      <button className={css.button} type="button" onClick={onClickHandler}>
         Logout
       </button>
     </>

@@ -1,4 +1,4 @@
-import css from './Home.module.css';
+import css from './Contacts.module.css';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { ContactForm } from 'components/ContactForm/ContactForm';
@@ -12,7 +12,7 @@ import {
 } from 'redux/contactsList/contactSelectors';
 import { fetchContacts } from 'redux/contactsList/operations';
 
-export const Home = () => {
+export const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContactsList);
   const isLoading = useSelector(selectIsLoading);
