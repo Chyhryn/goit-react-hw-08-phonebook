@@ -2,6 +2,7 @@ import { Container } from 'components/Container/Container';
 import css from './Login.module.css';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,14 @@ export const Login = () => {
           Password
           <input type="password" name="password" />
         </label>
-        <button className={css.submit_btn} type="submit">
-          Login
-        </button>
+        <div className={css.form_wrapper}>
+          <Link className={css.link} to="/sign-up">
+            Registration
+          </Link>
+          <button className={css.submit_btn} type="submit">
+            Login
+          </button>
+        </div>
       </form>
     </Container>
   );

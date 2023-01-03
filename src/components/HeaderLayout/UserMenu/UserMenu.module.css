@@ -1,6 +1,8 @@
 .user_email {
   margin: 0;
   padding: 10px;
+
+  font-weight: 500;
 }
 
 .button {
@@ -14,4 +16,9 @@
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #1a7ad9;
 }
