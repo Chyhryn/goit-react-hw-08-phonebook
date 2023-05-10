@@ -20,23 +20,25 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    !isRefreshing && (
-      <>
-        <Routes>
-          <Route path="/" element={<HeaderLayout />}>
-            <Route index element={<PrivateRoute component={Contacts} />} />
-            <Route
-              path="login"
-              element={<RestrictedRoute component={Login} />}
-            />
-            ;
-            <Route
-              path="sign-up"
-              element={<RestrictedRoute component={Registration} />}
-            />
-          </Route>
-        </Routes>
-      </>
-    )
+    <>
+      <Routes>
+        <Route path="/" element={<HeaderLayout />}>
+          {!isRefreshing && (
+            <>
+              <Route index element={<PrivateRoute component={Contacts} />} />
+              <Route
+                path="login"
+                element={<RestrictedRoute component={Login} />}
+              />
+              ;
+              <Route
+                path="sign-up"
+                element={<RestrictedRoute component={Registration} />}
+              />
+            </>
+          )}
+        </Route>
+      </Routes>
+    </>
   );
 };

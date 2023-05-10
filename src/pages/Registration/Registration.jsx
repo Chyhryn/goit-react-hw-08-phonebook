@@ -9,10 +9,9 @@ export const Registration = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    const name = form.elements.name.value;
     const email = form.elements.email.value;
     const password = form.elements.password.value;
-    const user = { name, email, password };
+    const user = { email, password };
     dispatch(createUser(user));
     form.reset();
   };
@@ -21,10 +20,6 @@ export const Registration = () => {
     <Container>
       <h1 className={css.title}>Registration form</h1>
       <form className={css.form} onSubmit={handleSubmit}>
-        <label className={css.label}>
-          Name
-          <input type="text" name="name" />
-        </label>
         <label className={css.label}>
           Email
           <input type="email" name="email" />

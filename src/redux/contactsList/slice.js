@@ -34,12 +34,12 @@ const contactsSlice = createSlice({
     [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.push(action.payload);
+      state.items = action.payload;
     },
     [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const index = state.items.findIndex(item => item.id === action.payload);
+      const index = state.items.findIndex(item => item._id === action.payload);
       state.items.splice(index, 1);
     },
   },

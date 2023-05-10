@@ -11,7 +11,7 @@ export const Contact = ({ contact }) => {
   };
 
   return (
-    <li className={css.contact_item} key={contact.id} id={contact.id}>
+    <li className={css.contact_item} id={contact._id}>
       <span>
         {contact.name}: {contact.number}
       </span>

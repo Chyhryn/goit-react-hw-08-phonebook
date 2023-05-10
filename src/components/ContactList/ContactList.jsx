@@ -8,7 +8,7 @@ export const ContactList = () => {
   return (
     <ul>
       {filteredContacts.map(contact => (
-        <Contact contact={contact} key={contact.id} />
+        <Contact contact={contact} key={contact._id} />
       ))}
     </ul>
   );
